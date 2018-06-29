@@ -25,4 +25,17 @@ export class DataHandlerProvider {
     });
   }
 
+  getData = (key) => {
+    return new Promise((rez)=>{
+      if(this.data == undefined){
+        this.load().then(() => {
+          rez(this.data[key])
+        })
+      }
+      else{
+      rez(this.data)
+      }
+    });
+  }
+
 }

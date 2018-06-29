@@ -1,18 +1,67 @@
-<!--
-  Generated template for the HomePage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
+<!--html-map-->
+<!-- main page-->
+@import "ionic.globals";
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>home</ion-title>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>interseeing</ion-title>
   </ion-navbar>
-
 </ion-header>
 
+<!--<ion-scroll scrollY="true">-->
+<ion-content class="map-page">
+  <div class="lonely">
+    
+  </div>
+  <div class="main-container">
+    <div class="overlay">
+      <div class="gradient"></div>
+      <div class="region" style="z-index: 3;">Monastiraki</div>  
+        <div class="city">Athens</div>
+          <div class="location-icon"> 
+            <img src="assets/img/love-valentine-favorite-like-heart-icon.png">
+     </div>    
+  </div>
+      <img src="assets/img/main-img.jpg" class="main-background" style="height: 200px">
+      <ion-item class="main-search" color="transparent">
+          <ion-searchbar class="search-bar" style="width:250" color="transparent"
+                   [(ngModel)]="queryText"
+                   (ionInput)="updateMainSearch()"
+                   placeholder="What are you looking for?">
+          </ion-searchbar>
+      </ion-item>
+      <div class="main-overlay"></div>
+    
+  </div>
+  
 
-<ion-content padding>
+  <div style="height: 40%; width: 100%" #mapCanvas id="map_canvas"></div>
 
+  <div id="list-of-attractions">
+    <ion-slides pager loop slidesPerView="3">
+        <ion-slide *ngFor="let slide of">
+            <div class="image container">
+              <div class="darker">
+               <img [src]="slide.image" style="opacity: 0.2%; filter: alpha(opacity=50);">
+              </div>
+              <div class="attraction-name" >{{slide.name}}</div>
+          </div>
+          </ion-slide>
+      </ion-slides>
+
+    <!--  <div class="overlay" style="height: 55px">
+        <br>
+      </div>
+    -->
+    </div>
+
+    
 </ion-content>
+<!--</ion-scroll>-->

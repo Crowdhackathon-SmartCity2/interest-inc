@@ -17,6 +17,7 @@ import { FoodPage } from '../pages/food/food';
 import { MapPage } from '../pages/map/map';
 import { QrCodesPage } from '../pages/qr-codes/qr-codes';
 import { StorePage } from '../pages/store/store';
+import { AccountPage } from '../pages/account/account';
 
 
 @NgModule({
@@ -30,12 +31,26 @@ import { StorePage } from '../pages/store/store';
     FoodPage,
     MapPage,
     QrCodesPage,
-    StorePage
+    StorePage,
+    AccountPage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(IntereseeingsApp),
+    IonicModule.forRoot(IntereseeingsApp, {}, {
+      links:[
+        { component: TabsPage, name: 'TabsPage', segment: 'page-tabs' },
+        { component: HomePage, name: 'HomePage', segment: 'home' },
+        { component: AboutPage, name: 'AboutPage', segment: 'about' },
+        { component: CategoriesPage, name: 'CategoriesPage', segment: 'categories' },
+        { component: FoodPage, name: 'FoodPage', segment: 'food' },
+        { component: MapPage, name: 'MapPage', segment: 'map' },
+        { component: QrCodesPage, name: 'QrCodesPage', segment: 'qr-codes' },
+        { component: StorePage, name: 'StorePage', segment: 'store' },
+        { component: AccountPage, name: 'AccountPage', segment: 'account' },
+        { component: CouponsPage, name: 'CouponsPage', segment: 'coupons' }
+      ]
+    }),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -49,7 +64,8 @@ import { StorePage } from '../pages/store/store';
     FoodPage,
     MapPage,
     QrCodesPage,
-    StorePage
+    StorePage,
+    AccountPage
   ],
   providers: [
     StatusBar,

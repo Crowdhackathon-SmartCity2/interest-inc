@@ -344,14 +344,15 @@
 
 
 
-"stores":[
+"places":[
   {
+    "UUID":"Giorgo, fill this up",
     "name": "1st store",
     "category": "Food",
     "restaurant": "true",
     "coffee": "true",
     "desserts": "true",
-    "drinks_and_alcohol": "true",
+    "drinks and alcohol": "true",
     "pastry": "true",
     "pizza": "true",
     "souvlaki": "false",
@@ -359,15 +360,18 @@
     "description": "Description 1",
     "phone": "phone 1",
     "image": "assets/img/categories/history.jpg",
-    "working_hours": "Daily 10am-4am"
+    "position":{"lat":37.944490 ,"lng":23.691628}
+    
+
   },
   {
+    "UUID":"Giorgo, fill this up",
     "name": "2nd store",
     "category": "Food",
     "restaurant": "true",
     "coffee": "true",
     "desserts": "true",
-    "drinks_and_alcohol": "true",
+    "drinks and alcohol": "true",
     "pastry": "true",
     "pizza": "true",
     "souvlaki": "false",
@@ -375,16 +379,18 @@
     "description": "Description 2",
     "phone": "phone 2",
     "image": "assets/img/categories/Food.jpg",
-    "working_hours": "Daily 10am-4am"
+    "position":{"lat":37.934839, "lng":23.695563}
+
 
   },
   {
+    "UUID":"Giorgo, fill this up",
     "name": "3rd store",
     "category": "Food",
     "restaurant": "true",
     "coffee": "false",
     "desserts": "false",
-    "drinks_and_alcohol": "true",
+    "drinks and alcohol": "true",
     "pastry": "false",
     "pizza": "false",
     "souvlaki": "true",
@@ -392,16 +398,18 @@
     "description": "Description 3",
     "phone": "phone 3",
     "image": "assets/img/categories/religion.jpg",
-    "working_hours": "Daily 10am-4am"
+    "position":{"lat":37.940291, "lng":23.697581}
+
 
   },
   {
+    "UUID":"Giorgo, fill this up",
     "name": "4rth store",
     "category": "Patisserie",
     "restaurant": "false",
     "coffee": "true",
     "desserts": "true",
-    "drinks_and_alcohol": "false",
+    "drinks and alcohol": "false",
     "pastry": "false",
     "pizza": "false",
     "souvlaki": "false",
@@ -409,7 +417,8 @@
     "description": "Description 4",
     "phone": "phone 4",
     "image": "assets/img/categories/entertainment.jpg",
-    "working_hours": "Daily 10am-4am"
+    "position":{"lat":37.939596, "lng":23.686328}
+
 
   }
 

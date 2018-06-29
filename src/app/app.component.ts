@@ -1,6 +1,7 @@
 import { Storage } from '@ionic/storage';
 import { DataHandlerProvider } from './../providers/data-handler/data-handler';
 import { TabsPageModule } from './../pages/tabs/tabs.module';
+
 import { Component, ViewChild } from '@angular/core';
 import { Events, MenuController, Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -9,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { CategoriesPage } from '../pages/categories/categories';
 import { MapPage } from '../pages/map/map';
 import { QrCodesPage } from '../pages/qr-codes/qr-codes';
+import { TabsPage } from '../pages/tabs/tabs';
 
 
 export interface PageInterface {
@@ -29,7 +31,7 @@ export class IntereseeingsApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage:any;
+  rootPage:any = TabsPage;
 
   appPages: PageInterface[] = [
     { title: 'Schedule', name: 'TabsPage', component: TabsPageModule, tabComponent: HomePage, index: 0, icon: 'calendar' },
