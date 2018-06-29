@@ -10,13 +10,27 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { DataHandlerProvider } from '../providers/data-handler/data-handler';
 import { IonicStorageModule } from '@ionic/storage';
+import { AboutPage } from '../pages/about/about';
+import { CategoriesPage } from '../pages/categories/categories';
+import { CouponsPage } from '../pages/coupons/coupons';
+import { FoodPage } from '../pages/food/food';
+import { MapPage } from '../pages/map/map';
+import { QrCodesPage } from '../pages/qr-codes/qr-codes';
+import { StorePage } from '../pages/store/store';
 
 
 @NgModule({
   declarations: [
     IntereseeingsApp,
     HomePage,
-    TabsPage
+    TabsPage,
+    AboutPage,
+    CategoriesPage,
+    CouponsPage,
+    FoodPage,
+    MapPage,
+    QrCodesPage,
+    StorePage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +41,15 @@ import { IonicStorageModule } from '@ionic/storage';
   bootstrap: [IonicApp],
   entryComponents: [
     IntereseeingsApp,
-    HomePage
+    HomePage,
+    TabsPage,
+    AboutPage,
+    CategoriesPage,
+    CouponsPage,
+    FoodPage,
+    MapPage,
+    QrCodesPage,
+    StorePage
   ],
   providers: [
     StatusBar,
