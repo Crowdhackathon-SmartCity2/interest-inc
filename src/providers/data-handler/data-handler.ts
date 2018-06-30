@@ -1,6 +1,8 @@
-import { Http } from '@angular/http';
+//import { HttpClient } from '@angular/common/http';
+import { Http,Response } from '@angular/http';
 import { Injectable } from '@angular/core';
-
+//import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
 /*
   Generated class for the DataHandlerProvider provider.
 
@@ -9,33 +11,54 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class DataHandlerProvider {
-
+  BeaconInRange: boolean = false
+  locationName: string = null
   data: any
   constructor(public http: Http) {
     console.log('Hello DataHandlerProvider Provider');
   }
-  load = () => { 
+/*
+loadData(key:string) {
+  return this.http.get("assets/data/data.json")
+  .map((rez:Response) => rez.json()[key])
+}
+*/
+
+getData = (key:string) => { 
     return new Promise((resolve) => {
+      if(this.data == undefined){
         this.http.get('assets/data/data.json')
         .subscribe(result => {
           this.data = result.json()
-          resolve("Success!")
-          console.log(this.data)
-      });
-    });
-  }
-
-  getData = (key) => {
-    return new Promise((rez)=>{
-      if(this.data == undefined){
-        this.load().then(() => {
-          rez(this.data[key])
-        })
+          resolve(this.data[key])
+        });
       }
       else{
-      rez(this.data)
+        resolve(this.data[key])
       }
     });
+  
   }
 
-}
+
+  searchByLocationName(location:string = "default"){
+    console.log("THIS IS LOCATION: ", location)
+    this.getData("places").then((data = [])=>{
+    console.log("THIS IS DATA", data)
+    for (var i = 0; i < data.length; i++){
+      if (data[i].name == location){
+        console.log("THINGS ARE MOVING ALONG")
+        return data[i]
+      }
+    }
+  });
+    return this.data[0]
+    }
+  }
+
+ /* getData = (key:string) => {
+    return new Promise((rez)=>{
+      this.http.get("assets/data/data.json").subscribe()
+      rez(this.data[key])
+    });
+  }*/

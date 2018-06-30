@@ -346,6 +346,13 @@
 
 "places":[
   {
+    "UUID": "Giorgo, fill this up",
+    "name":"Stavros Niarchos Foundation Cultural Centre",
+    "image": "StavrosNiarchosFoundationCulturalCentre",
+    "text": "A multifunctional and environmentally sustainable education, arts, and recreation destination. It comprises of the Stavros Niarchos Park, and the new facilities of the National Library of Greece (NLG) and the Greek National Opera (GNO). Designed with the purpose of being open and accessible to all, it enriches the lives of the country's residents and aims to attract visitors from around the world.",
+    "tags":["art","entertainement"]
+	},
+  {
     "UUID":"Giorgo, fill this up",
     "name": "1st store",
     "category": "Food",
@@ -428,5 +435,6 @@
     "Art",
     "Shopping" 
   ]
+  
 
 }

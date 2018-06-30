@@ -1,3 +1,4 @@
+import { QrProvider } from './../../providers/qr/qr';
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 
@@ -21,6 +22,8 @@ export class TabsPage {
   qrCodesRoot = 'QrCodesPage'
 
 
-  constructor(public navCtrl: NavController) {}
-
+  constructor(public navCtrl: NavController, public bs:QrProvider) {}
+  smileAtTheCamera(){
+    this.bs.scanQR()
+  }
 }

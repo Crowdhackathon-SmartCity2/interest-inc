@@ -1,3 +1,4 @@
+import { QrCodesPage } from './../qr-codes/qr-codes';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
