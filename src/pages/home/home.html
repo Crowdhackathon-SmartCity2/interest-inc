@@ -33,6 +33,7 @@
       <ion-item class="main-search" color="transparent">
           <ion-searchbar class="search-bar" style="width:250" color="transparent"
                    [(ngModel)]="queryText"
+                   [ngModelOptions]="{standalone: true}"
                    (ionInput)="updateMainSearch()"
                    placeholder="What are you looking for?">
           </ion-searchbar>
@@ -45,22 +46,23 @@
   <div style="height: 40%; width: 100%" #mapCanvas id="map_canvas"></div>
 
   <div id="list-of-attractions">
-    <ion-slides pager loop slidesPerView="3">
-        <ion-slide *ngFor="let slide of">
-            <div class="image container">
-              <div class="darker">
-               <img [src]="slide.image" style="opacity: 0.2%; filter: alpha(opacity=50);">
+      <ion-slides pager loop slidesPerView="3">
+          <ion-slide *ngFor="let slide of places">
+              <div class="image container">
+                <div class="darker">
+                  {{slide}}
+                 <img [src]="slide.image" style="opacity: 0.2%; filter: alpha(opacity=50);">
+                </div>
+                <div class="attraction-name" >{{slide.name}}</div>
               </div>
-              <div class="attraction-name" >{{slide.name}}</div>
-          </div>
           </ion-slide>
       </ion-slides>
+  </div>
 
-    <!--  <div class="overlay" style="height: 55px">
-        <br>
-      </div>
-    -->
-    </div>
+      <!--  <div class="overlay" style="height: 55px">
+          <br>
+        </div>
+      -->
 
     
 </ion-content>

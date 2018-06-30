@@ -15,7 +15,7 @@ export class DataHandlerProvider {
     console.log('Hello DataHandlerProvider Provider');
   }
   load = () => { 
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
         this.http.get('assets/data/data.json')
         .subscribe(result => {
           this.data = result.json()

@@ -1,3 +1,24 @@
 page-categories {
 
-}
+    // border:none;
+ }
+ 
+ .cat{
+     position: relative;
+     text-align: center;
+     border:none;
+     padding: none;
+     height: 20vh;
+ }
+ 
+ .cat-text{
+ 
+     position: absolute;
+     color: aliceblue;
+     top: 45%;
+     font-size: 170%;
+     left: 50%;
+     transform: translate( -50%, -50%);
+   //  color: #000000;
+ }
+ 

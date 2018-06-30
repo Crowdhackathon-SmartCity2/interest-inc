@@ -5,6 +5,8 @@ import { Platform } from 'ionic-angular';
 
 import { Slides } from 'ionic-angular';
 
+import { Geolocation } from '@ionic-native/geolocation';
+
 //import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
@@ -21,20 +23,37 @@ declare var google: any;
   templateUrl: 'home.html',
 })
 export class HomePage {
-
+  places: any;
+  map: any;
+  queryText: string;
   @ViewChild('mapCanvas') mapElement: ElementRef;
-  constructor(public data: DataHandlerProvider, public platform: Platform) {
+  constructor(
+    public data: DataHandlerProvider,
+    public platform: Platform,
+    public geo: Geolocation) {
+      platform.ready().then(()=>{
+        this.loadMap()
+      })
   }
 
-  ionViewDidLoad() {
-
-    this.data.getData("places").then((mapData: any) => {
-      let mapEle = this.mapElement.nativeElement;
-      console.log("Loading map")
-      let map = new google.maps.Map(mapEle, {
-        center: mapData.find((d: any) => d.center),
-        zoom: 16
+  loadMap() {
+    this.data.getData('places').then((mapData:any) => {
+      this.places = mapData
+      var posOption = {timeout:10000, enableHighAccuracy: false}
+      this.geo.getCurrentPosition(posOption)
+    .then((position) => {
+      let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+       this.map = new google.maps.Map(this.mapElement.nativeElement, {
+        zoom: 15,
+        center: latLng
       });
+    }).catch(()=>{
+      this.map = new google.maps.Map(this.mapElement.nativeElement, {
+        zoom: 15,
+        center: {lat: 41.85, lng: -87.65}
+        
+      });
+    });
 
       mapData.forEach((markerData: any) => {
         let infoWindow = new google.maps.InfoWindow({
@@ -42,20 +61,14 @@ export class HomePage {
         });
 
         let marker = new google.maps.Marker({
-          position: markerData,
-          map: map,
+          position: markerData.position,
           title: markerData.name
         });
 
         marker.addListener('click', () => {
-          infoWindow.open(map, marker);
+          infoWindow.open(this.map, marker);
         });
       });
-
-      google.maps.event.addListenerOnce(map, 'idle', () => {
-        mapEle.classList.add('show-map');
-      });
-
     });
 
 }
@@ -114,6 +127,11 @@ export class HomePage {
 
   goToSlide(){
     this.slides.slideTo(2.500);
+}
+
+
+updateMainSearch(){
+
 }
 }
 

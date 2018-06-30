@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { DataHandlerProvider } from '../../providers/data-handler/data-handler';
 
 /**
  * Generated class for the CategoriesPage page.
@@ -14,12 +15,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'categories.html',
 })
 export class CategoriesPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  categories 
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams,
+    public data: DataHandlerProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad CategoriesPage');
+  ionViewCanEnter(){
+   this.data.load().then((rez) => {
+     this.categories = rez
+   })
   }
+
+  goToPlaces(){
+
+  }
+
+  
 
 }

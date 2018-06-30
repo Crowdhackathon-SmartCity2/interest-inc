@@ -31,7 +31,7 @@ export class IntereseeingsApp {
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage:any = TabsPage;
+  rootPage:any;
 
   appPages: PageInterface[] = [
     { title: 'Schedule', name: 'TabsPage', component: TabsPageModule, tabComponent: HomePage, index: 0, icon: 'calendar' },
@@ -59,7 +59,9 @@ export class IntereseeingsApp {
     */
       this.platformReady();
       
-      this.dataHandler.load();
+      this.dataHandler.load().then(()=>{
+        this.rootPage = TabsPage
+      })
 
       
    }

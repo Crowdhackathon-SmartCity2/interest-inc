@@ -418,11 +418,15 @@
     "phone": "phone 4",
     "image": "assets/img/categories/entertainment.jpg",
     "position":{"lat":37.939596, "lng":23.686328}
-
-
-  }
-
-  
-]
+  }  
+],
+  "categories":[
+    "History",
+    "Religion",
+    "Food & Beverage",
+    "Entertainment",
+    "Art",
+    "Shopping" 
+  ]
 
 }

@@ -19,6 +19,7 @@ import { QrCodesPage } from '../pages/qr-codes/qr-codes';
 import { StorePage } from '../pages/store/store';
 import { AccountPage } from '../pages/account/account';
 
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { AccountPage } from '../pages/account/account';
     AccountPage
   ],
   providers: [
+    Geolocation,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
