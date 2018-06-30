@@ -434,7 +434,38 @@
     "Entertainment",
     "Art",
     "Shopping" 
-  ]
+  ],
   
+  "offers":[
+    {
+      "image": "assets/img/categories/history.jpg",
+      "discount": "true",
+      "percent_discount": 25,
+      "offer": "false",
+      "type_of_offer": " ",
+      "remaining_hours": 23, 
+      "remaining_ minutes": 59
+    },
+    {
+      "image": "assets/img/categories/food.jpg",
+      "company_name":"Acropolis_Museum",
+      "discount": "false",
+      "percent_discount": 25,
+      "offer": "true",
+      "type_of_offer": "2+1 TICKET FREE",
+      "remaining_hours": 3, 
+      "remaining_ minutes": 59
+    },
+    {
+      "image": "assets/img/categories/religion.jpg",
+      "company_name":"Acropolis_Museum",
+      "discount": "true",
+      "percent_discount": 15,
+      "offer": "true",
+      "type_of_offer": "2+1 TICKET FREE",
+      "remaining_hours": 3, 
+      "remaining_ minutes": 59
+    }
+  ]
 
 }
