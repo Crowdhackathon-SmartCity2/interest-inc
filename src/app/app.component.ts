@@ -59,9 +59,9 @@ export class IntereseeingsApp {
     */
       this.platformReady();
       
-      this.dataHandler.load().then(()=>{
+    //  this.dataHandler.load().then(()=>{
         this.rootPage = TabsPage
-      })
+      //})
 
       
    }

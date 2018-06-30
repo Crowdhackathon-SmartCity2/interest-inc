@@ -1,6 +1,8 @@
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
+import { Http,Response } from '@angular/http';
 import { Injectable } from '@angular/core';
-
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
 /*
   Generated class for the DataHandlerProvider provider.
 
@@ -14,7 +16,13 @@ export class DataHandlerProvider {
   constructor(public http: Http) {
     console.log('Hello DataHandlerProvider Provider');
   }
-  load = () => { 
+
+loadData(key:string) {
+  return this.http.get("assets/data/data.json")
+  .map((rez:Response) => rez.json()[key])
+}
+
+  /*load = () => { 
     return new Promise((resolve) => {
         this.http.get('assets/data/data.json')
         .subscribe(result => {
@@ -23,17 +31,17 @@ export class DataHandlerProvider {
           console.log(this.data)
       });
     });
-  }
+  }*/
 
-  getData = (key) => {
+  getData = (key:string) => {
     return new Promise((rez)=>{
-      if(this.data == undefined){
-        this.load().then(() => {
-          rez(this.data[key])
-        })
+      while(this.data == undefined){
+        setTimeout(function (){
+
+        }, 5000);
       }
-      else{
-      rez(this.data)
+      {
+      rez(this.data[key])
       }
     });
   }
