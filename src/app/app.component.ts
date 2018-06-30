@@ -62,6 +62,10 @@ export class IntereseeingsApp {
       this.events.subscribe("QR", ()=>{
         this.nav.push(PlacesPage)
       })
+
+      this.events.subscribe("bcn", () =>{
+        this.nav.push(PlacesPage)
+      })
     //  this.dataHandler.load().then(()=>{
         this.rootPage = TabsPage
       //})
