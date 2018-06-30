@@ -1,9 +1,10 @@
+import { PlacesPage } from './../../pages/places/places';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { Injectable, ViewChild } from '@angular/core';
+import { AlertController, Events } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { NavController } from 'ionic-angular';
-import { Vibration } from '@ionic-native/Vibration;
+import { Vibration } from '@ionic-native/Vibration';
 import { DataHandlerProvider } from '../data-handler/data-handler';
 
 /*
@@ -14,8 +15,16 @@ import { DataHandlerProvider } from '../data-handler/data-handler';
 */
 @Injectable()
 export class QrProvider {
+  name:string = null;
+  nav:  NavController;
+  constructor(
+    public dataHandler:DataHandlerProvider,
+    public barcodeScanner: BarcodeScanner, 
+    public http: HttpClient,
+    public vibration: Vibration,
+    public alertCtrl: AlertController,
+    public events: Events) {
 
-  constructor(public dataHandler:DataHandlerProvider, public barcodeScanner: BarcodeScanner,public http: HttpClient,public navCtrl: NavController,public vibration: Vibration,public alertCtrl: AlertController) {
     console.log('Hello QrProvider Provider');
 
   }
@@ -32,7 +41,7 @@ export class QrProvider {
         alert.present();
         this.dataHandler.BeaconInRange=true;
         this.dataHandler.locationName=barcodeData.text;//barcodedata tha einai to onoma tou location px."Stavros Niarchos Constitutional Center"
-        this.navCtrl.push(PlacesPage); // TO BE ADDED 
+        this.events.publish("QR"); // TO BE ADDED 
      }).catch(err => {
         //console.log('Error', err);
         const alert = this.alertCtrl.create({
@@ -41,6 +50,7 @@ export class QrProvider {
           buttons: ['Ok']
         })
         alert.present();
+        this.events.publish("QR")
      });
   }
 

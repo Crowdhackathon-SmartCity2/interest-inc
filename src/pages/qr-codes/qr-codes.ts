@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { QrProvider } from '../../providers/qr/qr';
 
 /**
  * Generated class for the QrCodesPage page.
@@ -15,11 +16,11 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class QrCodesPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
+  constructor(
+    public navCtrl: NavController, public qr: QrProvider) {
     console.log('ionViewDidLoad QrCodesPage');
   }
+  ionViewDidLoad(){
 
+    }
 }

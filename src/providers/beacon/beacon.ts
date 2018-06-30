@@ -1,3 +1,4 @@
+import { PlacesPage } from './../../pages/places/places';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IBeacon } from '@ionic-native/ibeacon';
@@ -86,4 +87,4 @@ delegate.didEnterRegion()
   }
 
 
-}
+

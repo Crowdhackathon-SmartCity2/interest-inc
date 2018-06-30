@@ -1,3 +1,4 @@
+import { PlacesPage } from './../pages/places/places';
 import { Storage } from '@ionic/storage';
 import { DataHandlerProvider } from './../providers/data-handler/data-handler';
 import { TabsPageModule } from './../pages/tabs/tabs.module';
@@ -58,7 +59,9 @@ export class IntereseeingsApp {
     });
     */
       this.platformReady();
-      
+      this.events.subscribe("QR", ()=>{
+        this.nav.push(PlacesPage)
+      })
     //  this.dataHandler.load().then(()=>{
         this.rootPage = TabsPage
       //})

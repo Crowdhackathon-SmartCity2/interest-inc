@@ -1,8 +1,11 @@
+import { Vibration } from '@ionic-native/Vibration';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { PlacesPage } from './../pages/places/places';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
@@ -36,7 +39,8 @@ import { BeaconProvider } from '../providers/beacon/beacon';
     MapPage,
     QrCodesPage,
     StorePage,
-    AccountPage
+    AccountPage,
+    PlacesPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,9 @@ import { BeaconProvider } from '../providers/beacon/beacon';
         { component: QrCodesPage, name: 'QrCodesPage', segment: 'qr-codes' },
         { component: StorePage, name: 'StorePage', segment: 'store' },
         { component: AccountPage, name: 'AccountPage', segment: 'account' },
-        { component: CouponsPage, name: 'CouponsPage', segment: 'coupons' }
+        { component: CouponsPage, name: 'CouponsPage', segment: 'coupons' },
+        { component: CouponsPage, name: 'PlacesPage', segment: 'places' }
+
       ]
     }),
     IonicStorageModule.forRoot()
@@ -70,16 +76,19 @@ import { BeaconProvider } from '../providers/beacon/beacon';
     MapPage,
     QrCodesPage,
     StorePage,
-    AccountPage
+    AccountPage,
+    PlacesPage
   ],
-  providers: [
+  providers:[
+    BarcodeScanner,
     Geolocation,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     DataHandlerProvider,
     QrProvider,
-    BeaconProvider
+    BeaconProvider,
+    Vibration
   ]
 })
 export class AppModule { }

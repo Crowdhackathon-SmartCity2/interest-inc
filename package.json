@@ -21,6 +21,7 @@
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
+    "@ionic-native/background-mode": "^4.9.0",
     "@ionic-native/barcode-scanner": "^4.9.0",
     "@ionic-native/core": "4.8.0",
     "@ionic-native/geolocation": "^4.8.0",
@@ -48,7 +49,8 @@
     "phonegap-plugin-barcodescanner": "^8.0.0",
     "rxjs": "^5.5.11",
     "sw-toolbox": "3.6.0",
-    "zone.js": "0.8.26"
+    "zone.js": "0.8.26",
+    "com.unarin.cordova.beacon": "~3.6.1"
   },
   "devDependencies": {
     "@ionic/app-scripts": "3.1.10",
@@ -74,8 +76,8 @@
       "cordova-plugin-background-mode": {}
     },
     "platforms": [
-      "android",
-      "browser"
+      "browser",
+      "android"
     ]
   }
 }
