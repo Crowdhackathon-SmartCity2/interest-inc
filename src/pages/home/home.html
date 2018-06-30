@@ -33,7 +33,6 @@
       <ion-item class="main-search" color="transparent">
           <ion-searchbar class="search-bar" style="width:250" color="transparent"
                    [(ngModel)]="queryText"
-                   [ngModelOptions]="{standalone: true}"
                    (ionInput)="updateMainSearch()"
                    placeholder="What are you looking for?">
           </ion-searchbar>
@@ -46,24 +45,92 @@
   <div style="height: 40%; width: 100%" #mapCanvas id="map_canvas"></div>
 
   <div id="list-of-attractions">
-      <ion-slides pager loop slidesPerView="3">
-          <ion-slide *ngFor="let slide of places">
-              <div class="image container">
-                <div class="darker">
-                  {{slide}}
-                 <img [src]="slide.image" style="opacity: 0.2%; filter: alpha(opacity=50);">
-                </div>
-                <div class="attraction-name" >{{slide.name}}</div>
+    <ion-slides pager loop slidesPerView="3">
+        <ion-slide *ngFor="let slide of slider">
+            <div class="image container">
+              <div class="darker">
+               <img [src]="slide.image" style="opacity: 0.2%; filter: alpha(opacity=50);">
               </div>
+              <div class="attraction-name" >{{slide.name}}</div>
+          </div>
           </ion-slide>
       </ion-slides>
-  </div>
 
-      <!--  <div class="overlay" style="height: 55px">
-          <br>
-        </div>
-      -->
+    <!--  <div class="overlay" style="height: 55px">
+        <br>
+      </div>
+    -->
+    </div>
+<!--
+    <div id="event-wrapper">
+      <div id="event-title">Events in Athens</div>
+        <div *ngFor="let i of events" style="border:none; padding:none;">
+          <div class="events-container" (click)="chosenEvent(i)">
+            <img src="{{i.image}}" class="event-image">
+            <script>
 
-    
+              cur_day=getDate();
+              cur_month=getMonth();
+              cur_hour=getHour();
+              //exp;
+              //state;
+              //date;
+
+              if(cur_month > i.expiring-date-month){
+                //bgale apo lista to event
+              }
+              else{
+                if(cur_day > i.expiring-date-day){
+                //bgale apo lista to event
+                }
+                else{
+                  if(cur_hour > i.finishing-hour){
+                  //bgale apo lista to event
+                  }
+                  else{
+                    if((i.starting-day-date === i.expiring-day-date)&&(i.starting-date-month===i.expiring-date-month )){
+                      date="i.starting-day-date" + "i.starting-date-month";
+                      state="TODAY";
+                      exp="Ends on" + "i.finishing-hour" + ":" + "i.finishing-minutes";
+                    }
+                    else{
+                      date="i.starting-day-date" + " " + "i.starting-date-month" + "-" + "i.expiring-day-date" + " " + "i.expiring-day-month";
+                    }
+                    if((i.starting-day-date<cur_day)&&(i.expiring-day-date>cur.date)){
+                      state="ONGOING";
+                    }
+                  }
+                }
+              }
+            </script>
+            <div id="date-event">{{date}}</div>
+            <div id="is-on-going">{{state}}</div>
+            <div id="event-name">{{name}}</div>
+            <div id="event-type">{{category}}</div>
+          </div>
+      </div>
+    </div>
+  -->
+  <div id="events-title" style="position:relative; padding: 3vh; color:black; top:0%; left:30%;">Events in Athens</div>
+  <div id="event-wrapper">
+  
+    <div class="date" id="1st-event">31 June</div>
+    <img src="assets/img/athens/athens1.jpg" class="event-image" id="event-img-1">
+    <div class="event-name" id="name-1">Athens Science Festival</div>
+    <div class="event-type" id="type-1">Science and innovation</div>
+    <div id="today">TODAY</div>
+    <div id="expiring-time" color="red">Ends on 23:59</div>
+<!---->
+<!--   <div class="date" id="2nd-event-a">1 June</div>
+    <div class="date" id="1st-event-b">30 Sept</div>
+    <img src="assets/img/athens/athens2.jpg" class="event-image" id="event-img-2">
+    <div class="event-name" id="name-2">Athens Epidaurus Festival</div>
+    <div class="event-type" id="type-2">Theatre, Dance nd Music</div>
+    <div>ONGOING</div>
+  <!---->
+   <!-- <div class="date" id="3rd-event">20 July</div>
+    <img src="assets/img/athens/athens1.jpg" class="event-image" id="event-img-3">
+    <div class="event-name" id="name-3">Eject Festival</div>
+    <div class="event-type" id="type-3">music</div>
+   --></div>
 </ion-content>
-<!--</ion-scroll>-->
