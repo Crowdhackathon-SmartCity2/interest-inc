@@ -1,5 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
 import { DataHandlerProvider } from '../../providers/data-handler/data-handler';
 
 /**
@@ -14,24 +15,31 @@ import { DataHandlerProvider } from '../../providers/data-handler/data-handler';
   selector: 'page-categories',
   templateUrl: 'categories.html',
 })
+
 export class CategoriesPage {
-  categories 
+  categories
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
-    public data: DataHandlerProvider) {
+    public data: DataHandlerProvider,
+    public httpClient: HttpClient) {
   }
-
+  
   ionViewCanEnter(){
-   this.data.load().then((rez) => {
-     this.categories = rez
-   })
+    this.load()
   }
 
   goToPlaces(){
 
   }
 
-  
+  load(){
+
+    console.log("THE END IS HERE")
+    this.data.loadData("categories").subscribe((data) => {
+      console.log(data)
+      this.categories = data
+    })
+  }
 
 }

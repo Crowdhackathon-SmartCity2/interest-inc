@@ -16,10 +16,9 @@
 <ion-content padding>
   <div *ngFor="let i of categories">
     <div class="cat" (click)="goToPlaces()">
-      {{i}}
-      <img src="{{'assets/img/categories' + i + '.png'}}" style="height: 23vh; min-width:80vh;">
+      <img src="{{'assets/img/categories/' + i + '.png'}}" style="height: 23vh; min-width:80vh;">
       <div class="history-overlay">
-        <div class="cat-text">History</div>
+        <div class="cat-text"></div>
       </div>
     </div>
   </div>
