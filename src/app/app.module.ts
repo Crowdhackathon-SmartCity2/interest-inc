@@ -20,6 +20,8 @@ import { StorePage } from '../pages/store/store';
 import { AccountPage } from '../pages/account/account';
 
 import { Geolocation } from '@ionic-native/geolocation';
+import { QrProvider } from '../providers/qr/qr';
+import { BeaconProvider } from '../providers/beacon/beacon';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { Geolocation } from '@ionic-native/geolocation';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    DataHandlerProvider
+    DataHandlerProvider,
+    QrProvider,
+    BeaconProvider
   ]
 })
 export class AppModule { }
