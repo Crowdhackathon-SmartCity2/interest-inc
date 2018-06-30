@@ -26,20 +26,13 @@ export class CategoriesPage {
   }
   
   ionViewCanEnter(){
-    this.load()
-  }
-
-  goToPlaces(){
-
-  }
-
-  load(){
-
     console.log("THE END IS HERE")
-    this.data.loadData("categories").subscribe((data) => {
-      console.log(data)
-      this.categories = data
+    this.data.getData("categories").then((rez) => {
+    this.categories = rez
+    console.log(rez)
     })
   }
 
+  goToPlaces(){
+  }
 }

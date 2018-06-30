@@ -16,34 +16,33 @@ export class DataHandlerProvider {
   constructor(public http: Http) {
     console.log('Hello DataHandlerProvider Provider');
   }
-
+/*
 loadData(key:string) {
   return this.http.get("assets/data/data.json")
   .map((rez:Response) => rez.json()[key])
 }
+*/
 
-  /*load = () => { 
+getData = (key:string) => { 
     return new Promise((resolve) => {
+      if(this.data == undefined){
         this.http.get('assets/data/data.json')
         .subscribe(result => {
           this.data = result.json()
-          resolve("Success!")
-          console.log(this.data)
-      });
+          resolve(this.data[key])
+        });
+      }
+      else{
+        resolve(this.data[key])
+      }
+    });
+  
+  }
+}
+
+ /* getData = (key:string) => {
+    return new Promise((rez)=>{
+      this.http.get("assets/data/data.json").subscribe()
+      rez(this.data[key])
     });
   }*/
-
-  getData = (key:string) => {
-    return new Promise((rez)=>{
-      while(this.data == undefined){
-        setTimeout(function (){
-
-        }, 5000);
-      }
-      {
-      rez(this.data[key])
-      }
-    });
-  }
-
-}
