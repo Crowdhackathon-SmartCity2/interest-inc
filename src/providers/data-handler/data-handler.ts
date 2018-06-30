@@ -43,12 +43,12 @@ getData = (key:string) => {
 
   searchByLocationName(location:string = "default"){
     console.log("THIS IS LOCATION: ", location)
-    this.getData("places").then((data = [])=>{
+    this.getData("places").then((data)=>{
     console.log("THIS IS DATA", data)
-    for (var i = 0; i < data.length; i++){
-      if (data[i].name == location){
-        console.log("THINGS ARE MOVING ALONG")
-        return data[i]
+    for (var i in data){
+      var obj = data[i]
+      if(obj.name == location){
+        return obj;
       }
     }
   });

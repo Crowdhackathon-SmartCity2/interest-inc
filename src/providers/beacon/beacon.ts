@@ -5,7 +5,7 @@ import { IBeacon } from '@ionic-native/ibeacon';
 import { Vibration } from '@ionic-native/Vibration';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { BackgroundMode } from '@ionic-native/background-mode';
-import { AlertController } from 'ionic-angular';
+import { AlertController, Events } from 'ionic-angular';
 import { NavController } from 'ionic-angular'
 import { DataHandlerProvider } from '../data-handler/data-handler';
 
@@ -18,11 +18,20 @@ import { DataHandlerProvider } from '../data-handler/data-handler';
 @Injectable()
 export class BeaconProvider {
 
-  constructor(public dataHandler:DataHandlerProvider,public http: HttpClient,public ibeacon: IBeacon,private localNotifications: LocalNotifications,public navCtrl: NavController,public vibration: Vibration,public alertCtrl: AlertController,private backgroundMode: BackgroundMode) {
+  constructor(public dataHandler:DataHandlerProvider,
+    public http: HttpClient,
+    public ibeacon: IBeacon,
+    private localNotifications: LocalNotifications,
+    public navCtrl: NavController,
+    public vibration: Vibration,
+    public alertCtrl: AlertController,
+    private backgroundMode: BackgroundMode,
+    private events: Events) {
     console.log('Hello BeaconProvider Provider');
   }
 
   BeaconScan(){
+    console.log("BEACON IS SCANNING, HOIPE")
     this.backgroundMode.enable();
     let delegate = this.ibeacon.Delegate();
     delegate.didRangeBeaconsInRegion()
@@ -55,7 +64,8 @@ delegate.didEnterRegion()
     data => {
       this.dataHandler.BeaconInRange=true;
       this.dataHandler.locationName=data.region.identifier;
-      this.navCtrl.push(PlacesPage); // TO BE ADDED 
+      //this.navCtrl.push(PlacesPage); // TO BE ADDED
+      this.events.publish("bcn")
 
       this.localNotifications.schedule({
         id: 1,
