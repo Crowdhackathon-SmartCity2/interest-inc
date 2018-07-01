@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {DataHandlerProvider } from '../../providers/data-handler/data-handler';
-import { QrProvider } from '../../providers/qr/qr';
+//import { QrProvider } from '../../providers/qr/qr';
 
 
 /**
@@ -24,15 +24,15 @@ export class StorePage {
     public dataHandler: DataHandlerProvider
   ) {
   }
-
-  ionViewDidLoad() {
-    if(this.dataHandler.BeaconInRange){
-      this.place = this.dataHandler.searchByLocationName(this.dataHandler.locationName)
-      console.log(this.dataHandler.locationName)
-      console.log(this.place)
-      this.dataHandler.BeaconInRange = false
-    }
-    console.log('ionViewDidLoad PlacesPage');
-  }
-
 }
+  //ionViewDidLoad() {
+  //  if(this.dataHandler.BeaconInRange){
+  //    this.place = this.dataHandler.searchByLocationName(this.dataHandler.locationName)
+  //    console.log(this.dataHandler.locationName)
+  //    console.log(this.place)
+ //     this.dataHandler.BeaconInRange = false
+   // }
+  //  console.log('ionViewDidLoad PlacesPage');
+  //}
+
+//}

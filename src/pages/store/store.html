@@ -22,13 +22,13 @@
               <img src="assets/img/love-valentine-favorite-like-heart-icon.png">
           </div>
   
-          <div id="image-wrapper"><img src={{this.data.location.image}} id="image">
+          <div id="image-wrapper"><img src="assets/msg/offers/1.jpg" id="image">
           </div>
           <div id="location_icon">
-              <img src="assets/img/love-valentine-favorite-like-heart-icon.png">
+              <img src="assets/imgs/1.png">
           </div>
-          <div id="stores-name" class="text_color">{{this.data.location.name}}</div>
-          <div id="stores-category" class="text_color">{{this.data.location.category}}</div>
+          <div id="stores-name" class="text_color">Niarchos</div>
+          <div id="stores-category" class="text_color">Entertainment & Arts</div>
   
         </div>
   
@@ -49,7 +49,7 @@
               <img src="assets/img/love-valentine-favorite-like-heart-icon.png">
           </div>
           <div id="pizza_icon" class="icon">
-              <img src="assets/imgs/pizza.png">
+              <img src="assets/imgs/pizza_icon.png">
           </div>
           <div id="souvlaki_icon" class="icon">
               <img src="assets/img/love-valentine-favorite-like-heart-icon.png">
@@ -58,7 +58,9 @@
       </div>
   
   <!--INFORMATION SECTION--> 
-   <div id="wrapper">
+ 
+ <!--
+  <div id="wrapper">
     <div id="address">
           <div id="address_icon" class="icon_info">
               <img src="assets/img/love-valentine-favorite-like-heart-icon.png" >
@@ -86,4 +88,33 @@
       </div>
       </div>
   </ion-content>
+
+-->
+<div id="wrapper">
+    <div id="address">
+          <div id="address_icon" class="icon_info">
+              <img src="assets/img/love-valentine-favorite-like-heart-icon.png" >
+          </div>
+          <div class="text_des" id="text_addr">{{this.data.location.address}}</div>
+      </div>
+      <div id="description">
+          <div id="info_icon" class="icon_info">
+              <img src="assets/img/love-valentine-favorite-like-heart-icon.png">
+          </div>
+          <div class="text_des" id="text_descr">{{this.data.location.description}}</div>
+      </div>
+      <div id="phone">
+          <div id="phone_icon" class="icon_info">
+              <img src="assets/img/love-valentine-favorite-like-heart-icon.png">
+          </div>
+          <div class="text_des" id="text_phone">{{this.data.location.phone}}</div>
   
+      </div>
+      <div id="working-hours">
+          <div id="time_icon" class="icon_info">
+              <img src="assets/img/love-valentine-favorite-like-heart-icon.png">
+          </div>
+          <div class="text_des" id="text_hours">{{this.data.location.working_hours}}</div>
+      </div>
+      </div>
+  </ion-content>

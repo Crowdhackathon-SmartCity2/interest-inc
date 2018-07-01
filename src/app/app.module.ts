@@ -32,6 +32,7 @@ import { AccountPage } from '../pages/account/account';
 import { Geolocation } from '@ionic-native/geolocation';
 import { QrProvider } from '../providers/qr/qr';
 import { BeaconProvider } from '../providers/beacon/beacon';
+import { SightPage } from '../pages/sight/sight';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { BeaconProvider } from '../providers/beacon/beacon';
     QrCodesPage,
     StorePage,
     AccountPage,
-    PlacesPage
+    PlacesPage,
+    SightPage
   ],
   imports: [
     BrowserModule,
@@ -90,7 +92,8 @@ import { BeaconProvider } from '../providers/beacon/beacon';
     QrCodesPage,
     StorePage,
     AccountPage,
-    PlacesPage
+    PlacesPage,
+    SightPage
   ],
   providers:[
     BarcodeScanner,
