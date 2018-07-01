@@ -1,3 +1,4 @@
+import { PlacesPage } from './../../pages/places/places';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IBeacon } from '@ionic-native/ibeacon';
@@ -6,6 +7,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { AlertController, Events } from 'ionic-angular';
 import { DataHandlerProvider } from '../data-handler/data-handler';
+import { cordovaWarn, Cordova } from '@ionic-native/core';
 
 /*
   Generated class for the BeaconProvider provider.
@@ -30,29 +32,11 @@ export class BeaconProvider {
   BeaconScan(){
     console.log("BEACON IS SCANNING, HOIPE")
     this.backgroundMode.enable();
-    let delegate = this.ibeacon.Delegate();
-    delegate.didRangeBeaconsInRegion()
-  .subscribe(
-    data => {console.log('didRangeBeaconsInRegion: ', data);
-    const alert = this.alertCtrl.create({
-      title: 'Nearby:',
-      subTitle: 'didRangeBeaconsInRegion: '+ data.region.identifier,
-      buttons: ['OK']
-    });
-    alert.present();
-    },
-    error => console.error()
-  );
+    var delegate = this.ibeacon.Delegate();
+    this.ibeacon.setDelegate(delegate);
 delegate.didStartMonitoringForRegion()
   .subscribe(
-    data => {console.log('didStartMonitoringForRegion: ', data);
-    const alert = this.alertCtrl.create({
-      title: 'Nearby:',
-      subTitle: 'You will be alerted when you are near:'+ data.region.identifier,
-      buttons: ['OK']
-    });
-    alert.present();
-   },
+    data => {console.log('didStartMonitoringForRegion: ', data)},
     error => console.error()
     
   );
@@ -73,17 +57,6 @@ delegate.didEnterRegion()
         wakeup: true
       });
     }
-  );
-  delegate.didExitRegion()
-  .subscribe(
-    data => {const alert = this.alertCtrl.create({
-      title: 'Nearby:',
-      subTitle: "Pitty..you are now too far away from:" + data.region.identifier,
-      buttons: ['OK']
-    });
-    alert.present();
-  }
-
   );
     if(!this.ibeacon.isBluetoothEnabled()){
       this.ibeacon.enableBluetooth();
