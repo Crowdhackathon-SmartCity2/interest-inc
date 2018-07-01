@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { StorePage } from '../store/store';
-
 
 /**
- * Generated class for the FoodPage page.
+ * Generated class for the EntertainmentPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -12,20 +10,16 @@ import { StorePage } from '../store/store';
 
 @IonicPage()
 @Component({
-  selector: 'page-food',
-  templateUrl: 'food.html',
+  selector: 'page-entertainment',
+  templateUrl: 'entertainment.html',
 })
-export class FoodPage {
+export class EntertainmentPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FoodPage');
+    console.log('ionViewDidLoad EntertainmentPage');
   }
 
-
-  move(){
-    this.navCtrl.push(StorePage);
-  }
 }

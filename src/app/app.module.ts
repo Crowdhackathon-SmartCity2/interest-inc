@@ -16,8 +16,14 @@ import { DataHandlerProvider } from '../providers/data-handler/data-handler';
 import { IonicStorageModule } from '@ionic/storage';
 import { AboutPage } from '../pages/about/about';
 import { CategoriesPage } from '../pages/categories/categories';
-import { CouponsPage } from '../pages/coupons/coupons';
+
+import { HistoryPage } from '../pages/history/history';
 import { FoodPage } from '../pages/food/food';
+import { ReligionPage } from '../pages/religion/religion';
+import { EntertainmentPage } from '../pages/entertainment/entertainment';
+
+
+import { CouponsPage } from '../pages/coupons/coupons';
 import { MapPage } from '../pages/map/map';
 import { QrCodesPage } from '../pages/qr-codes/qr-codes';
 import { StorePage } from '../pages/store/store';
@@ -34,6 +40,10 @@ import { BeaconProvider } from '../providers/beacon/beacon';
     TabsPage,
     AboutPage,
     CategoriesPage,
+    HistoryPage,
+    FoodPage,
+    ReligionPage,
+    EntertainmentPage,
     CouponsPage,
     FoodPage,
     MapPage,
@@ -71,6 +81,9 @@ import { BeaconProvider } from '../providers/beacon/beacon';
     TabsPage,
     AboutPage,
     CategoriesPage,
+    HistoryPage,
+    ReligionPage,
+    EntertainmentPage,
     CouponsPage,
     FoodPage,
     MapPage,

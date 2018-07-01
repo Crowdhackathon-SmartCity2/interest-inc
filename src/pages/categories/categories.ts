@@ -1,7 +1,10 @@
-import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
-import { DataHandlerProvider } from '../../providers/data-handler/data-handler';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { HistoryPage } from '../history/history';
+import { ReligionPage } from '../religion/religion';
+import { FoodPage } from '../food/food';
+import { EntertainmentPage } from '../entertainment/entertainment';
+
 
 /**
  * Generated class for the CategoriesPage page.
@@ -15,24 +18,27 @@ import { DataHandlerProvider } from '../../providers/data-handler/data-handler';
   selector: 'page-categories',
   templateUrl: 'categories.html',
 })
-
 export class CategoriesPage {
-  categories
-  constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams,
-    public data: DataHandlerProvider,
-    public httpClient: HttpClient) {
-  }
-  
-  ionViewCanEnter(){
-    console.log("THE END IS HERE")
-    this.data.getData("categories").then((rez) => {
-    this.categories = rez
-    console.log(rez)
-    })
+
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  goToPlaces(){
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad CategoriesPage');
   }
+
+  moveToHistoryTab(){
+    this.navCtrl.push(HistoryPage);
+  }
+
+  moveToReligionTab(){
+    this.navCtrl.push(ReligionPage);
+  }
+  moveToFoodTab(){
+    this.navCtrl.push(FoodPage);
+  }
+  moveToEntertainmentTab(){
+    this.navCtrl.push(EntertainmentPage);
+  }
+
 }
