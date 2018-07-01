@@ -10,20 +10,6 @@ page-categories {
      padding: none;
      height: 20vh;
  }
-
- 
-.overlay{
-    height: 100%;
-    width: 100%;
-    color: #000000;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0.5;
-    filter: alpha(opacity=60);
-  }
-  
  
  .cat-text{
  
@@ -34,10 +20,5 @@ page-categories {
      left: 50%;
      transform: translate( -50%, -50%);
    //  color: #000000;
-
-   .entertainment-overlay{
-    height:15vh;
-
-   }
-}
+ }
  

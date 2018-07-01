@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { StorePage } from '../store/store';
-
 
 /**
  * Generated class for the FoodPage page.
@@ -24,8 +22,4 @@ export class FoodPage {
     console.log('ionViewDidLoad FoodPage');
   }
 
-
-  move(){
-    this.navCtrl.push(StorePage);
-  }
 }

@@ -6,43 +6,20 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
-    <ion-title>Categories</ion-title>
+  <ion-navbar>
+    <ion-title>categories</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content >
-  <div class="cat" (click)="moveToHistoryTab()">
-    <img src="assets/img/categories/history.jpg" style="height: 23vh; min-width:80vh;">
-    <div class="history-overlay">
-    <div class="overlay">  
-      <div class="cat-text">History</div>
+<ion-content padding>
+  <div *ngFor="let i of categories">
+    <div class="cat" (click)="goToPlaces()">
+      <img src="{{'assets/img/categories/' + i + '.png'}}" style="height: 23vh; min-width:80vh;">
+      <div class="history-overlay">
+        <div class="cat-text"></div>
+      </div>
     </div>
-  </div>
-  </div>
-  <div class="cat" (click)="moveToReligionTab()">
-      <img src="assets/img/categories/religion.jpg" style="height: 23vh;">  
-      <div class="religion-overlay">
-     <div class="overlay">
- 
-        <div class="cat-text">Religion</div>
-      </div>
-  </div>
-  </div>
-  <div class="cat" (click)="moveToFoodTab()">
-      <img src="assets/img/categories/food.jpg" style="height: 23vh;">
-        <div class="religion-overlay">
-      <div class="overlay">
-           <div class="cat-text">Food and Beverages</div>
-      </div>
-  </div>
-  </div>
-  <div class="cat" (click)="moveToEntertainmentTab()">
-    <img src="assets/img/categories/entertainment.jpg" style="height: 23vh;">
-   <div class="overlay">
-    <div class="cat-text">Entertainment</div>
-  </div>
   </div>
 </ion-content>
