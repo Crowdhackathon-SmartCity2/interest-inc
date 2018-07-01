@@ -1,4 +1,4 @@
-<!--
+<!-- food.html
   Generated template for the FoodPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
@@ -6,13 +6,40 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>food</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+    <ion-navbar color="primary">
+      <ion-title>Food & Beverages</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content style="border:none; padding: none;">
+    <div class="location-and-filters" color="secondary">
+        <img src="assets/img/love-valentine-favorite-like-heart-icon.png" class="location_icon" (click)="moveToFoodMap()">
+        <img src="assets/img/love-valentine-favorite-like-heart-icon.png" class="categories_icon">
+      </div>
+  
+    <!--<ion-scroll scrollY="true" class="food-scroller">
+      <ion-card>-->
+        
+      <div class="out">
+        <<button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+      <div *ngFor="let i of food" style="border:none; padding:none;">
+          <div class="stores-container" (click)="chosenStore(i)">
+                <img src="{{i.image}}" height:20vh style="padding:none;">
+                <div class="darker">
+                  <div id="store-name" class="stores-text">{{i.name}}</div>
+                  <div id="store-category" class="stores-text"> {{i.category}}</div>
+                  <div id="location_icon">
+                    <img src="assets/img/love-valentine-favorite-like-heart-icon.png">
+                  </div>
+                </div>
+              
+          </div>
+  
+        </div>
+      </div>
+    
+    </ion-content>
+  

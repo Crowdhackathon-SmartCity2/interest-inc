@@ -1,5 +1,9 @@
 //import { HttpClient } from '@angular/common/http';
+<<<<<<< HEAD
 import { Http } from '@angular/http';
+=======
+import { Http} from '@angular/http';
+>>>>>>> 1038de011763c90ac20ede7dd6bdb784e103827d
 import { Injectable } from '@angular/core';
 //import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';

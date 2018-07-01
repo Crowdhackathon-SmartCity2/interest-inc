@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {DataHandlerProvider } from '../../providers/data-handler/data-handler';
+import { QrProvider } from '../../providers/qr/qr';
+
 
 /**
  * Generated class for the StorePage page.
@@ -14,12 +17,22 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'store.html',
 })
 export class StorePage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  place = {}
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public dataHandler: DataHandlerProvider
+  ) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad StorePage');
+    if(this.dataHandler.BeaconInRange){
+      this.place = this.dataHandler.searchByLocationName(this.dataHandler.locationName)
+      console.log(this.dataHandler.locationName)
+      console.log(this.place)
+      this.dataHandler.BeaconInRange = false
+    }
+    console.log('ionViewDidLoad PlacesPage');
   }
 
 }

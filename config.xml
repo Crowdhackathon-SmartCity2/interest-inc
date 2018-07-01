@@ -86,15 +86,18 @@
         <variable name="GEOLOCATION_USAGE_DESCRIPTION" value="To locate you" />
     </plugin>
     <plugin name="com.unarin.cordova.beacon" spec="~3.6.1" />
-    <plugin name="phonegap-plugin-barcodescanner" spec="^8.0.0">
-        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
-    </plugin>
-    <plugin name="cordova-plugin-vibration" spec="^3.1.0" />
     <plugin name="cordova-plugin-local-notification" spec="^0.9.0-beta.2" />
     <allow-navigation href="http://10.101.64.195:8100" />
+<<<<<<< HEAD
     <allow-navigation href="http://192.168.42.216:8100" />
     <allow-navigation href="http://192.168.42.100:8100" />
     <engine name="browser" spec="5.0.3" />
     <engine name="android" spec="7.0.0" />
     <plugin name="cordova-plugin-background-mode" spec="^0.7.2" />
+=======
+    <plugin name="cordova-plugin-vibration" spec="^3.1.0" />
+    <plugin name="phonegap-plugin-barcodescanner" spec="^8.0.0">
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
+    </plugin>
+>>>>>>> 1038de011763c90ac20ede7dd6bdb784e103827d
 </widget>

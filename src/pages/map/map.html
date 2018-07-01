@@ -1,18 +1,39 @@
 <!--
-  Generated template for the MapPage page.
+  Generated template for the FoodMapPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>map</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Food & Beverages</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+    
+      <div style="height: 80%; width: 100%" #mapCanvas id="map_canvas"></div>
+    
+      <div id="list-of-attractions">
+        <ion-slides pager loop slidesPerView="3">
+            <ion-slide *ngFor="let slide of slider">
+                <div class="image_container">
+                  <div class="darker">
+                   <img [src]="slide.image" style="opacity: 0.2%; filter: alpha(opacity=50);">
+                  </div>
+                  <div class="attraction-name" >{{slide.name}}</div>
+              </div>
+              </ion-slide>
+          </ion-slides>
+    
+        <!--  <div class="overlay" style="height: 55px">
+            <br>
+          </div>
+        -->
+        </div>
+    
+     
 </ion-content>
