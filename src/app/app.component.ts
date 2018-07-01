@@ -1,4 +1,3 @@
-import { PlacesPage } from './../pages/places/places';
 import { Storage } from '@ionic/storage';
 import { DataHandlerProvider } from './../providers/data-handler/data-handler';
 import { TabsPageModule } from './../pages/tabs/tabs.module';
@@ -13,6 +12,7 @@ import { MapPage } from '../pages/map/map';
 import { QrCodesPage } from '../pages/qr-codes/qr-codes';
 import { TabsPage } from '../pages/tabs/tabs';
 import { BeaconProvider } from '../providers/beacon/beacon';
+import { SightPage } from '../pages/sight/sight';
 
 
 export interface PageInterface {
@@ -64,7 +64,7 @@ export class IntereseeingsApp {
     this.bcn.BeaconScan()
       this.platformReady();
       this.events.subscribe("locationFound", ()=>{
-        this.nav.push(PlacesPage)
+        this.nav.push(SightPage)
       })
     //  this.dataHandler.load().then(()=>{
         this.rootPage = TabsPage

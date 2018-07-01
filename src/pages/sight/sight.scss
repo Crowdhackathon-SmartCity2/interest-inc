@@ -1,3 +1,183 @@
 page-sight {
-
+   
+        #image{
+            max-width: 200%;
+            max-height: 150%;
+        }
+        .image-wrapper{
+            height:30vh;
+            padding: none;
+            //max-width: 
+        }
+        .store-image-container{
+            position: relative;
+            text-align: center;
+        }
+        
+        #stores-name{
+            position: absolute;
+            top:39%;
+            left:15%;
+            font-size:130%;
+        }
+        
+        #stores-category{
+            position:absolute;
+            top:63%;
+            left:35%;
+            font-size:90;
+        }
+        
+        .text_color{
+            color: aliceblue;
+        }
+        
+        #location_icon{
+            position:absolute;
+            top: 29%;
+            left: 55%;
+            height: 8vh;
+            width: 8vh;
+        }
+        
+        #favorites{
+            position:absolute;
+            top: 0%;
+            left:85%;
+            height: 55px;
+            width: 55px;
+        }
+        
+        #share{
+            position:absolute;
+            top: 8%;
+            left: 75%;
+            height: 55px;
+            width: 55px;
+        }
+        
+        //filter bar
+        #filter-bar{
+            position:relative;
+            padding:20px;
+        }
+        
+        .icon{
+            position: absolute;
+            height: 70px;
+            width: 70px;
+            top: 0%;
+            border-bottom: 10vh;
+        }
+        
+        //filter icon lefts
+        #food_icon{
+            left:0%;
+        }
+        
+        #coffee_icon{
+            left:20%;
+        }
+        
+        #cake_icon{
+            left:40%;
+        }
+        
+        #coctail_icon{
+            left:60%;
+        }
+        
+        #pizza_icon{
+            left:80%;
+        }
+        
+        #pastry_icon{
+            display:none;
+        }
+        
+        #souvlaki_icon{
+            display:none;
+        }
+        
+        
+        #filters-footer{
+            position:absolute;
+            padding: 50px;
+            height: 90px;
+            width: 200px;
+            top:60%;
+        }
+        
+        //info section
+        #wrapper{
+            position:relative;
+            min-height: 25vh;
+        }
+        /*
+        #address{
+            position:relative;
+        }
+        */
+        .icon_info{
+            position:absolute;
+            height: 55px;
+            width:  55px;
+            left: 18px;
+        }
+        
+        .text_des{
+            position: absolute;    
+            left: 19%;
+        }
+        
+        //text heights
+        #text_addr{
+            top: 16%;
+        }
+        
+        #text_descr{
+            top: 36%;
+            max-height: 60%;
+            overflow: auto;
+        }
+        
+        
+        #text_phone{
+            top: 110%;
+        }
+        
+        #text_hours{
+            top:135%;
+        }
+        
+        //info icon heights
+        #address_icon{
+            top: 15%;
+        }
+        
+        #info_icon{
+            top: 39%;
+        }
+        
+        #phone_icon{
+            top: 111%;
+        }
+        
+        #time_icon{
+            top: 136%;
+        }
+        
+        .overlay{
+            height: 100%;
+            width: 100%;
+            color: #000000;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 1;
+            filter: alpha(opacity=30);
+          }
+          
+        
 }
