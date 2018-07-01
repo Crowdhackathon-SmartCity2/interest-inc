@@ -12,6 +12,7 @@ import { CategoriesPage } from '../pages/categories/categories';
 import { MapPage } from '../pages/map/map';
 import { QrCodesPage } from '../pages/qr-codes/qr-codes';
 import { TabsPage } from '../pages/tabs/tabs';
+import { BeaconProvider } from '../providers/beacon/beacon';
 
 
 export interface PageInterface {
@@ -49,7 +50,8 @@ export class IntereseeingsApp {
     public events: Events,
     public dataHandler: DataHandlerProvider,
     public storage: Storage,
-    public menu: MenuController
+    public menu: MenuController,
+    public bcn: BeaconProvider
   ) {
     /*platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -58,12 +60,10 @@ export class IntereseeingsApp {
       splashScreen.hide();
     });
     */
-      this.platformReady();
-      this.events.subscribe("QR", ()=>{
-        this.nav.push(PlacesPage)
-      })
 
-      this.events.subscribe("bcn", () =>{
+    this.bcn.BeaconScan()
+      this.platformReady();
+      this.events.subscribe("locationFound", ()=>{
         this.nav.push(PlacesPage)
       })
     //  this.dataHandler.load().then(()=>{
