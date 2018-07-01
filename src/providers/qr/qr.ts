@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, ViewChild } from '@angular/core';
 import { AlertController, Events } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { NavController } from 'ionic-angular';
 import { Vibration } from '@ionic-native/Vibration';
 import { DataHandlerProvider } from '../data-handler/data-handler';
 
@@ -16,7 +15,6 @@ import { DataHandlerProvider } from '../data-handler/data-handler';
 @Injectable()
 export class QrProvider {
   name:string = null;
-  nav:  NavController;
   constructor(
     public dataHandler:DataHandlerProvider,
     public barcodeScanner: BarcodeScanner, 
@@ -41,7 +39,7 @@ export class QrProvider {
         alert.present();
         this.dataHandler.BeaconInRange=true;
         this.dataHandler.locationName=barcodeData.text;//barcodedata tha einai to onoma tou location px."Stavros Niarchos Constitutional Center"
-        this.events.publish("QR"); // TO BE ADDED 
+        this.events.publish("locationFound"); // TO BE ADDED 
      }).catch(err => {
         //console.log('Error', err);
         const alert = this.alertCtrl.create({

@@ -16,22 +16,30 @@ import { QrProvider } from '../../providers/qr/qr';
   templateUrl: 'places.html',
 })
 export class PlacesPage {
-  place = {}
+  dataObj = {
+    UUID:"",
+    namae:"",
+    image:"",
+    text:"",
+    tags:[]
+  };
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public dataHandler: DataHandlerProvider
   ) {
-  }
-
-  ionViewDidLoad() {
     if(this.dataHandler.BeaconInRange){
-      this.place = this.dataHandler.searchByLocationName(this.dataHandler.locationName)
-      console.log(this.dataHandler.locationName)
-      console.log(this.place)
+      this.dataHandler.searchByLocationName(this.dataHandler.locationName).then((rez)=>{
+        this.dataObj = rez
+      })
+      console.log("THis is the new dataobj: ",this.dataObj)
       this.dataHandler.BeaconInRange = false
     }
     console.log('ionViewDidLoad PlacesPage');
+  }
+
+  ionViewCanEnter(){
+
   }
 
 }

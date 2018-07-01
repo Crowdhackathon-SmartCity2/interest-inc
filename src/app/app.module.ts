@@ -1,3 +1,6 @@
+import { BackgroundMode } from '@ionic-native/background-mode';
+import { LocalNotifications } from '@ionic-native/local-notifications';
+import { IBeacon } from '@ionic-native/ibeacon';
 import { Vibration } from '@ionic-native/Vibration';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { PlacesPage } from './../pages/places/places';
@@ -104,7 +107,10 @@ import { SightPage } from '../pages/sight/sight';
     DataHandlerProvider,
     QrProvider,
     BeaconProvider,
-    Vibration
+    Vibration,
+    IBeacon,
+    LocalNotifications,
+    BackgroundMode
   ]
 })
 export class AppModule { }

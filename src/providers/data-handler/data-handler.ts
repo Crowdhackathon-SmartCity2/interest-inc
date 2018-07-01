@@ -1,5 +1,9 @@
 //import { HttpClient } from '@angular/common/http';
+<<<<<<< HEAD
+import { Http } from '@angular/http';
+=======
 import { Http} from '@angular/http';
+>>>>>>> 1038de011763c90ac20ede7dd6bdb784e103827d
 import { Injectable } from '@angular/core';
 //import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
@@ -14,6 +18,13 @@ export class DataHandlerProvider {
   BeaconInRange: boolean = false
   locationName: string = null
   data: any
+  dataObj: object = {
+    UUID:"",
+    namae:"",
+    image:"",
+    text:"",
+    tags:[]
+  };
   constructor(public http: Http) {
     console.log('Hello DataHandlerProvider Provider');
   }
@@ -30,6 +41,7 @@ getData = (key:string) => {
         this.http.get('assets/data/data.json')
         .subscribe(result => {
           this.data = result.json()
+          console.log 
           resolve(this.data[key])
         });
       }
@@ -41,20 +53,26 @@ getData = (key:string) => {
   }
 
 
-  searchByLocationName(location:string = "default"){
-    console.log("THIS IS LOCATION: ", location)
-    this.getData("places").then((data)=>{
-    console.log("THIS IS DATA", data)
-    for (var i in data){
-      var obj = data[i]
-      if(obj.name == location){
-        return obj;
-      }
-    }
-  });
-    return this.data[0]
-    }
+  searchByLocationName(location:string = "default"):Promise<any>{
+    return new Promise((val)=> {
+      console.log("THIS IS LOCATION: ", location)
+      this.getData("places").then((data)=>{
+        console.log("THIS IS DATA", data)
+        for (var i in data){
+          console.log(i)
+          console.log("THIS IS LOCATION: ", location)
+          var obj = data[i]
+          console.log(obj.name,obj.name == location)
+          if(obj.name == location){
+            console.log("THE IF HAS BEEN BREACHED")
+            val(data[i])
+            
+          }
+        }
+      });
+    })
   }
+}
 
  /* getData = (key:string) => {
     return new Promise((rez)=>{

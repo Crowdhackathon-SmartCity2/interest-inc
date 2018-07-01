@@ -1,4 +1,3 @@
-import { PlacesPage } from './../../pages/places/places';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IBeacon } from '@ionic-native/ibeacon';
@@ -6,7 +5,6 @@ import { Vibration } from '@ionic-native/Vibration';
 import { LocalNotifications } from '@ionic-native/local-notifications';
 import { BackgroundMode } from '@ionic-native/background-mode';
 import { AlertController, Events } from 'ionic-angular';
-import { NavController } from 'ionic-angular'
 import { DataHandlerProvider } from '../data-handler/data-handler';
 
 /*
@@ -22,7 +20,6 @@ export class BeaconProvider {
     public http: HttpClient,
     public ibeacon: IBeacon,
     private localNotifications: LocalNotifications,
-    public navCtrl: NavController,
     public vibration: Vibration,
     public alertCtrl: AlertController,
     private backgroundMode: BackgroundMode,
@@ -65,7 +62,7 @@ delegate.didEnterRegion()
       this.dataHandler.BeaconInRange=true;
       this.dataHandler.locationName=data.region.identifier;
       //this.navCtrl.push(PlacesPage); // TO BE ADDED
-      this.events.publish("bcn")
+      this.events.publish("locationFound")
 
       this.localNotifications.schedule({
         id: 1,
